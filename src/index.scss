@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Lilita+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Alegreya', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  /* background-color: var(--color-subtle-background); */
+  background-color: #263859;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 2px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-dark-blue text-white;
+  }
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+}
+
+@layer utilities {
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  @supports (
+    (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+  ) {
+    .backdrop {
+      background-color: rgba(0, 0, 0, 0.7);
+      -webkit-backdrop-filter: blur(2em) saturate(180%);
+      backdrop-filter: blur(2em) saturate(180%);
+    }
+  }
+}
+
+
+.loading-box{
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.loading-box span{
+  width: 10px;
+  height: 10px;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+  display: block;
+  transform: scale(1);
+  transform-origin: center center;
+  animation: circle .2s infinite ease-in-out 0s;
+  visibility: hidden;
+}
+
+@keyframes circle{
+  0%, 100%{
+    transform: scale(1);
+    box-shadow: 0px 0px 5px 5px #fff;
+    visibility: visible;
+  }
+  50%{
+    transform: scale(.25);
+    box-shadow: none;
+  }
+}
+
+.loading-box span:nth-child(1){
+  animation: circle 1s infinite ease-in-out .2s;
+}
+.loading-box span:nth-child(2){
+  animation: circle 1s infinite ease-in-out .4s;
+}
+.loading-box span:nth-child(3){
+  animation: circle 1s infinite ease-in-out .6s;
+}
+.loading-box span:nth-child(4){
+  animation: circle 1s infinite ease-in-out .8s;
+}
+.loading-box span:nth-child(5){
+  animation: circle 1s infinite ease-in-out 1s;
+}
